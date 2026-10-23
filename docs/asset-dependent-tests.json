@@ -1,0 +1,12 @@
+[
+  "audio-energy.test.ts",
+  "footprint-detail.test.ts",
+  "hunter.test.ts",
+  "nova-artwork.test.ts",
+  "phantom.test.ts",
+  "runner.test.ts",
+  "singularity.test.ts",
+  "titan.test.ts",
+  "vanguard.test.ts",
+  "weapon-jam.test.ts"
+]
