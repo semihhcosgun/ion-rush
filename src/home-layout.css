@@ -1,0 +1,45 @@
+/* Keep the dock's grid row inside its reserved height, including the home indicator. */
+#ui.screen-home {
+  --home-left: max(4.5vw, env(safe-area-inset-left), 24px);
+  --home-right: max(4.5vw, env(safe-area-inset-right), 24px);
+  --home-edge: var(--home-left);
+  padding-left: var(--home-left);
+  padding-right: var(--home-right);
+}
+#ui.screen-home .home-dock {
+  height: 90px;
+  left: var(--home-left);
+  right: var(--home-right);
+  bottom: max(18px, calc(env(safe-area-inset-bottom) + 10px));
+  grid-template-columns: minmax(100px, .8fr) minmax(90px, .7fr) minmax(0, 1.3fr) minmax(0, 1.3fr);
+  grid-template-rows: minmax(0, 1fr);
+}
+#ui.screen-home .home-dock > * { min-height: 0; }
+/* Avoid WebKit's filtered tap layer: keep the launch action orange while pressed. */
+#ui.screen-home .home-launch {
+  filter: none;
+  transition: transform .12s ease-out, box-shadow .12s ease-out, background .12s;
+}
+#ui.screen-home .home-launch:active {
+  filter: none;
+  background: linear-gradient(110deg, #ffac73, #ff794f);
+  transform: translateY(1px);
+  box-shadow: 0 4px 0 #9b4328, 0 8px 20px #0003;
+}
+@media (max-height: 450px) {
+  #ui.screen-home .home-dock { height: 78px; }
+  #ui.screen-home h1.home-wordmark { width: min(100%, 64vh, 390px); }
+  #ui.screen-home :is(.home-record,.home-energy) strong { font-size: 22px; }
+}
+@media (max-width: 740px) {
+  #ui.screen-home .home-dock { gap: 8px; }
+  #ui.screen-home .home-dock > :is(.home-record,.home-energy) { padding-inline: 9px; }
+  #ui.screen-home :is(.home-record,.home-energy) strong { font-size: 18px; }
+}
+@media (max-height: 340px) {
+  #ui.screen-home .home-copy { top: 20%; }
+  #ui.screen-home h1.home-wordmark { width: min(100%, 56vh); }
+  #ui.screen-home .home-dock { height: 70px; }
+  #ui.screen-home .home-dock > :is(.home-record,.home-energy) { padding-block: 6px; }
+  #ui.screen-home .home-dock > :is(.home-alien,.home-map) { padding-block: 6px; }
+}

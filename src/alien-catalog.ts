@@ -1,0 +1,28 @@
+import {getLocale} from './i18n';
+import {alienLoreTr} from './locales/alien-lore-tr';
+import {alienLoreLocalized} from './locales/alien-lore';
+import {ENEMY_TYPES,type EnemyKind} from './config';
+export const ALIEN_KINDS=Object.keys(ENEMY_TYPES) as EnemyKind[];
+export const ALIEN_LORE:Record<EnemyKind,{name:string;role:string;region:string;detail:string;counter:string;pattern:'aimed'|'split'|'fan';rarity:string}>={
+ scarab:{name:'DUNE SCARAB',role:'Armoured scout',region:'Mercury',detail:'A brass carapace folds over twin amber eyes. Slow, deliberate bursts protect its advance.',counter:'Keep fire on its broad hull and move after the targeting light.',pattern:'aimed',rarity:'HUNTER'},
+ helix:{name:'EMBER HELIX',role:'Spiral tactician',region:'Jupiter',detail:'Coral blades spiral around a pearl reactor. Two marked lanes conceal its approach.',counter:'Choose the lane without a warning strip; the split never tracks your dodge.',pattern:'split',rarity:'ELITE'},
+ medusa:{name:'JADE MEDUSA',role:'Drifting ambusher',region:'Saturn / Uranus',detail:'A jade bell trails luminous tendrils. Its gentle motion hides a deliberate split volley.',counter:'Look at the warning strips rather than the drifting tendrils.',pattern:'split',rarity:'EXOTIC'},
+ comet:{name:'COMET LANCER',role:'High-speed striker',region:'Kuiper Belt',detail:'A frozen blue spear with twin bright exhaust trails and a short three-shot burst.',counter:'Hold aim through its dash. Leave the marked lane once, then retaliate.',pattern:'aimed',rarity:'EXOTIC'},
+ oracle:{name:'VOID ORACLE',role:'Orbital tactician',region:'Deep space',detail:'Three indigo orbits frame a bright watchful eye. Two lanes are marked before it speaks.',counter:'Keep the third lane clear in your mind, or escape to another face.',pattern:'split',rarity:'MYTHIC'},
+ drone:{name:'RAIDER DRONE',role:'Scout',region:'Earth',detail:'A copper-winged scout testing your defences with single shots.',counter:'Move after its targeting light appears. Two hits break the hull.',pattern:'aimed',rarity:'SCOUT'},
+ saucer:{name:'ALIEN SCOUT',role:'Burst scout',region:'Earth / Moon',detail:'A violet saucer with a luminous dome and a double-shot burst.',counter:'Leave the marked lane; both shots commit to the same line.',pattern:'aimed',rarity:'PATROL'},
+ manta:{name:'VOID MANTA',role:'Sweeping hunter',region:'Moon',detail:'Living green fins carry this hunter through broad diving arcs.',counter:'Early sweeps cover the outside lanes. A veteran locks onto your lane.',pattern:'aimed',rarity:'HUNTER'},
+ wraith:{name:'WRAITH VANGUARD',role:'Interceptor',region:'Mars',detail:'An electric-blue spear that darts across your aim before firing a triple burst.',counter:'Track its recovery, then fire. Dodge once the lane is marked.',pattern:'aimed',rarity:'ELITE'},
+ sentinel:{name:'RING SENTINEL',role:'Armoured guardian',region:'Saturn',detail:'A golden orbital fortress with three weapon nodes and a reinforced core.',counter:'Its initial spread covers three lanes. Veteran aimed bursts stay on one marked lane.',pattern:'aimed',rarity:'ELITE'},
+ prism:{name:'PRISM WEAVER',role:'Split-lane tactician',region:'Neptune',detail:'Turquoise crystal blades orbit a bright amethyst heart. Its split volley claims two lanes.',counter:'Read both warning strips. Take the unmarked lane or change face.',pattern:'split',rarity:'EXOTIC'},
+ revenant:{name:'NEON REVENANT',role:'Rapid interceptor',region:'Kuiper Belt',detail:'Magenta twin crescents surround an icy reactor. Fast movement, concentrated fire.',counter:'Let its three-shot burst pass, then punish the recovery.',pattern:'aimed',rarity:'EXOTIC'},
+ seraph:{name:'ASTRAL SERAPH',role:'Face controller',region:'Deep space',detail:'Six luminous wings unfold around a violet crown. It sweeps an entire track face.',counter:'All three lanes light up. Change face before the full warning ends.',pattern:'fan',rarity:'MYTHIC'},
+ sovereign:{name:'SOLAR SOVEREIGN',role:'Heavy controller',region:'Andromeda',detail:'An amber crown guards the return corridor beneath Andromeda. A heavy hull and a deliberate split burst protect its hot white core.',counter:'Use the clear lane. Keep fire on the core during its slower manoeuvres.',pattern:'split',rarity:'MYTHIC'},
+ apex:{name:'ECLIPSE APEX',role:'Endless frontier guardian',region:'Beyond Sagittarius A*',detail:'A crimson eclipse with a cyan inner ring. The final archetype waits beyond the main expedition.',counter:'Change face for its fan volley. Save turbo and clear supporting scouts first.',pattern:'fan',rarity:'LEGENDARY'},
+};
+export type AlienLog=Partial<Record<EnemyKind,{seen:boolean;kills:number}>>;
+export function cleanAlienLog(value:unknown):AlienLog{const result:AlienLog={};if(!value||typeof value!=='object')return result;for(const kind of ALIEN_KINDS){const v=(value as Record<string,unknown>)[kind] as {seen?:unknown;kills?:unknown}|undefined;if(v&&typeof v==='object'){const kills=typeof v.kills==='number'&&Number.isFinite(v.kills)?Math.max(0,Math.floor(v.kills)):0;if(v.seen===true||kills>0)result[kind]={seen:true,kills};}}return result;}
+export function recordAlien(log:AlienLog,kind:EnemyKind,kill=false){const previous=log[kind],discovered=!previous?.seen,firstKill=kill&&!previous?.kills;log[kind]={seen:true,kills:(previous?.kills??0)+(kill?1:0)};return {discovered,firstKill,bonus:firstKill?ENEMY_TYPES[kind].points:0};}
+
+const localizedLore={tr:alienLoreTr,...alienLoreLocalized};
+export function alienLore(kind:EnemyKind){const locale=getLocale();return locale==='en'?ALIEN_LORE[kind]:{...ALIEN_LORE[kind],...localizedLore[locale][kind]};}

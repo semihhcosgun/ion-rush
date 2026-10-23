@@ -1,0 +1,142 @@
+@font-face {
+  font-family: Oxanium;
+  src: url('/fonts/oxanium-variable.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+/* The menu shares the wordmark's angular character while copy stays readable. */
+#ui.screen-home {
+  --home-type: Oxanium, sans-serif;
+}
+#ui.screen-home :is(.brand,.home-kicker,.home-launch,.home-pilot,.home-dock,.home-nova) {
+  font-family: var(--home-type);
+}
+#ui.screen-home .brand {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  color: #e5e5df;
+}
+#ui.screen-home .home-kicker {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #f0c6a2;
+}
+#ui.screen-home .home-copy p {
+  font-family: Manrope, sans-serif;
+  font-weight: 500;
+}
+#ui.screen-home .home-launch > span:nth-child(2) {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: .2px;
+  transform: skewX(-5deg);
+  text-shadow: 0 1px 0 #ffe6c07d;
+}
+#ui.screen-home .home-launch small {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .6px;
+  color: #563724;
+}
+#ui.screen-home .home-pilot small {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .4px;
+  color: #dfdfd7;
+}
+#ui.screen-home .home-pilot strong {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffe0aa;
+}
+#ui.screen-home .home-dock small {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  color: #ccdadc;
+}
+#ui.screen-home :is(.home-record,.home-energy) strong {
+  font-family: var(--home-type);
+  font-size: 30px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.6px;
+  color: #ffdfa4;
+  text-shadow: 0 2px 0 #07101c;
+}
+#ui.screen-home .home-record strong > span {
+  font-family: var(--home-type);
+  font-size: 10px;
+  font-weight: 600;
+  color: #bcd7da;
+}
+#ui.screen-home :is(.home-alien,.home-map) .map-copy {
+  min-width: 0;
+}
+#ui.screen-home :is(.home-alien,.home-map) .map-copy small {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: .1px;
+  color: #fff0d9;
+}
+#ui.screen-home :is(.home-alien,.home-map) .map-copy strong {
+  font-family: var(--home-type);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.25;
+  white-space: normal;
+  margin-top: 5px;
+  color: #bad3d9;
+}
+#ui.screen-home .home-alien .map-copy strong b {
+  font-family: var(--home-type);
+  font-size: inherit;
+}
+#ui.screen-home .home-nova {
+  width: 148px;
+}
+#ui.screen-home .home-nova small {
+  font-size: 7.5px;
+  font-weight: 600;
+  letter-spacing: .4px;
+}
+#ui.screen-home .home-nova strong {
+  font-family: var(--home-type);
+  font-size: 9px;
+  font-weight: 700;
+}
+#ui.screen-home .home-nova strong > b {
+  font-size: 20px;
+  color: #ffe6a4;
+  text-shadow: 0 1px 0 #713d18;
+}
+#ui.screen-home .home-nova strong > span {
+  letter-spacing: .2px;
+}
+@media (max-height:450px) {
+  #ui.screen-home .home-launch > span:nth-child(2) { font-size: 14px; }
+  #ui.screen-home :is(.home-record,.home-energy) strong { font-size: 26px; }
+  #ui.screen-home .home-dock small { font-size: 9px; }
+  #ui.screen-home :is(.home-alien,.home-map) .map-copy small { font-size: 11px; }
+}
+@media (max-width:740px) {
+  #ui.screen-home .brand { font-size: 10px; letter-spacing: 1px; }
+  #ui.screen-home .home-kicker { font-size: 10px; }
+  #ui.screen-home .home-launch > span:nth-child(2) { font-size: 12px; }
+  #ui.screen-home .home-launch small { font-size: 8px; }
+  #ui.screen-home .home-pilot { padding-inline: 8px; }
+  #ui.screen-home .home-pilot small { font-size: 8px; }
+  #ui.screen-home .home-pilot strong { font-size: 10px; }
+  #ui.screen-home .home-nova { width: 136px; }
+  #ui.screen-home .home-nova strong > b { font-size: 18px; }
+  #ui.screen-home .home-alien-art { display: none; }
+  #ui.screen-home .home-dock small { font-size: 8px; }
+  #ui.screen-home :is(.home-alien,.home-map) .map-copy small { font-size: 10px; }
+  #ui.screen-home :is(.home-alien,.home-map) .map-copy strong { font-size: 10px; }
+  #ui.screen-home :is(.home-record,.home-energy) strong { font-size: 22px; }
+}

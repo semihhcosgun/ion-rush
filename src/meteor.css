@@ -1,0 +1,7 @@
+/* Warnings use unboxed text so the landing area stays visible. */
+.meteor-alert{position:absolute;left:50%;top:25%;transform:translateX(-50%);display:flex;align-items:baseline;justify-content:center;gap:8px;width:min(560px,calc(100% - 190px));color:#ffd4a8;font:700 12px/1.45 Manrope;text-align:center;text-shadow:0 1px 3px #000,0 0 5px #0008;opacity:0;pointer-events:none;z-index:5}
+.meteor-alert.visible{opacity:1}
+.meteor-message{min-width:0}
+.meteor-time{flex-shrink:0;font-variant-numeric:tabular-nums;color:#fff1db}
+.meteor-alert.overheat{color:#ffb9ae}
+@media(max-width:740px){.meteor-alert{width:calc(100% - 160px);font-size:11px}}

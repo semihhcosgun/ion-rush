@@ -1,0 +1,160 @@
+#ui.screen-loading {
+  padding: 0;
+  background: #07101d !important;
+}
+.launch-panel {
+  --launch-progress: 0;
+  --launch-edge: max(4.5vw,env(safe-area-inset-left),24px);
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  color: #fff1dc;
+  font-family: Oxanium, sans-serif;
+  isolation: isolate;
+}
+.launch-art {
+  position: absolute;
+  inset: 0;
+  right: max(4.5vw,env(safe-area-inset-right),24px);
+  z-index: -2;
+  background: url('/menu-art.webp') right center / contain no-repeat, #07101d;
+  mask-image: linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+}
+.launch-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg,#07101dfc 0%,#07101def 23%,#07101da6 43%,transparent 73%),
+    linear-gradient(0deg,#07101df5 0%,#07101d77 19%,transparent 55%);
+}
+.launch-wordmark {
+  position: absolute;
+  left: var(--launch-edge);
+  top: max(22px,env(safe-area-inset-top));
+  width: clamp(120px,17vw,180px);
+  height: auto;
+}
+.launch-copy {
+  position: absolute;
+  left: var(--launch-edge);
+  top: 34%;
+  width: 44%;
+  max-width: 540px;
+}
+.launch-origin {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .7px;
+  color: #8fe9dd;
+}
+.launch-origin i {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border-radius: 50%;
+  background: #8fe9dd;
+}
+.launch-copy h2 {
+  font: 800 clamp(32px,5.1vw,66px)/1.05 Oxanium,sans-serif;
+  letter-spacing: -.8px;
+  margin: 14px 0 15px;
+  text-shadow: 0 3px 0 #112638;
+}
+.launch-copy p {
+  max-width: 310px;
+  font: 500 12px/1.6 Manrope,sans-serif;
+  color: #cbd7db;
+}
+/* Only real preparation updates these fills; no continuous scene or particle loop. */
+.launch-rail {
+  position: absolute;
+  left: 51%;
+  top: 76%;
+  width: 50%;
+  height: 3px;
+  transform: rotate(19deg);
+  transform-origin: left center;
+  background: #7cece327;
+}
+.launch-rail i,.launch-progress-track i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(var(--launch-progress));
+  transform-origin: left center;
+  background: linear-gradient(90deg,#42b5b5,#8cf8e6 80%,#ecfff4);
+  transition: transform 140ms ease-out;
+}
+.launch-rail i { box-shadow: 0 0 8px #80f5e987; }
+.launch-rail i::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -2px;
+  width: 8px;
+  height: 7px;
+  border-radius: 50%;
+  background: #effff8;
+}
+.launch-progress {
+  position: absolute;
+  left: var(--launch-edge);
+  right: max(4.5vw,env(safe-area-inset-right),24px);
+  bottom: max(25px,env(safe-area-inset-bottom));
+}
+.launch-progress-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+.launch-progress-top span {
+  font-size: 11px;
+  font-weight: 600;
+  color: #bdd7da;
+}
+.launch-progress-top b {
+  font-size: 21px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: #99f1e0;
+}
+.launch-progress-track { height: 4px; background: #bdded52b; }
+#ui.screen-countdown.launch-arrival::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: #dafff5;
+  animation: launch-arrival 180ms ease-out both;
+}
+@keyframes launch-arrival { from { opacity: .22; } to { opacity: 0; } }
+@media(max-height:450px) {
+  .launch-wordmark { top: max(18px,env(safe-area-inset-top)); width: 135px; }
+  .launch-copy { top: 31%; }
+  .launch-copy h2 { font-size: clamp(30px,4.6vw,48px); margin: 10px 0 12px; }
+  .launch-copy p { font-size: 11px; }
+}
+@media(max-width:740px) {
+  .launch-origin { font-size: 10px; }
+  .launch-copy { width: 46%; }
+  .launch-copy h2 { font-size: 30px; }
+  .launch-progress-top span { font-size: 10px; }
+  .launch-progress-top b { font-size: 18px; }
+}
+@media(max-height:340px) {
+  .launch-wordmark { width: 115px; top: max(14px,env(safe-area-inset-top)); }
+  .launch-copy { top: 30%; }
+  .launch-copy h2 { font-size: 27px; margin: 8px 0 10px; }
+  .launch-copy p { font-size: 10px; }
+  .launch-progress { bottom: max(18px,env(safe-area-inset-bottom)); }
+}
+@media(prefers-reduced-motion:reduce) {
+  .launch-rail i,.launch-progress-track i { transition: none; }
+  #ui.screen-countdown.launch-arrival::after { display: none; }
+}

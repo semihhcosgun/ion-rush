@@ -1,0 +1,16 @@
+.audio-level { display:flex;align-items:center;gap:8px;flex:0 0 150px; }
+.audio-level input { width:106px;min-width:0;accent-color:#ffac73;cursor:pointer;min-height:44px; }
+.audio-level output { min-width:34px;text-align:right;font-size:10px;font-variant-numeric:tabular-nums;color:#ffdfa4; }
+@media(max-width:740px){.audio-level{flex-basis:120px;gap:5px}.audio-level input{width:81px}.audio-level output{font-size:9px}}
+
+.music-offer {position:absolute;top:calc(env(safe-area-inset-top,0px) + 74px);left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;max-width:calc(100% - 24px);width:max-content;padding:2px 4px 2px 12px;border:1px solid #d5eeed22;border-radius:12px;background:#10252cbb;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#e0eeec;box-shadow:0 2px 10px #0002;pointer-events:auto;font-size:11px;z-index:45;}
+.music-offer button {border:1px solid #cee9e62b;border-radius:8px;background:#d5eeed12;color:#e0f3ed;min-height:40px;padding:8px 12px;font:600 11px Manrope,sans-serif;cursor:pointer;white-space:nowrap;}
+.music-offer .music-offer-close {border:0;background:transparent;color:#b1c5c9;font-size:18px;padding:4px 8px;min-width:36px;}
+.screen-race .music-offer {top:calc(env(safe-area-inset-top,0px) + 92px);}
+@media(max-width:600px){.music-offer{gap:6px;font-size:10px}.music-offer button{font-size:10px;padding:6px 8px}.screen-race .music-offer{top:calc(env(safe-area-inset-top,0px) + 80px)}}
+.screen-race.lesson-active .music-offer {top:calc(env(safe-area-inset-top,0px) + 132px);}
+
+.settings-bottom>div {flex:1;min-width:0;}
+.settings-bottom .lesson-replay {flex:0 0 auto;min-height:44px;padding:8px 14px;border:1px solid #8cbdb544;border-radius:8px;background:#142b31;color:#cceee3;font-size:9px;white-space:nowrap;}
+
+.settings-bottom .lesson-replay[aria-pressed="true"] {background:#294939;border-color:#a3d2b177;color:#e0ffdf;}
