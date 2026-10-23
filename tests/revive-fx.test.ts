@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {ReviveFX} from '../src/revive-fx';
+test('recovery pulse freezes on pause, expires, resets and reuses its meshes',()=>{const fx=new ReviveFX(),children=[...fx.root.children];fx.trigger();fx.update(.3);assert.equal(fx.root.visible,true);const scales=children.map(c=>c.scale.clone());fx.update(0);children.forEach((c,i)=>assert.deepEqual(c.scale,scales[i]));fx.update(.8);assert.equal(fx.root.visible,false);fx.trigger();assert.deepEqual(fx.root.children,children);fx.reset();assert.equal(fx.root.visible,false);});
+test('reduced motion keeps only the gentle glow',()=>{const fx=new ReviveFX();fx.trigger(true);fx.update(.2);assert.equal(fx.root.children.filter(c=>c.visible).length,1);});
