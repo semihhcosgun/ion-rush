@@ -1,5 +1,13 @@
 # ION RUSH — source code
 
+## 📱 Live on App Store & Google Play
+
+**ION RUSH is a published mobile game, available now on iOS and Android.**
+
+### [Download on the App Store](https://apps.apple.com/us/app/ion-rush/id6818494716) · [Get it on Google Play](https://play.google.com/store/apps/details?id=com.nullshiftlab.nullshift)
+
+The store versions are the complete game. This repository is the separate, code-only GPLv3 source release described below.
+
 Source code from ION RUSH, a space motorcycle action/endless runner built with TypeScript, Three.js, Vite and Capacitor. This repository shares gameplay, rendering, UI, localization, audio-system, purchase-delivery and native bridge implementations for study and reuse under GPL-3.0-only.
 
 **This is a source-only release, not a complete playable game or a ready-to-submit mobile app.** Images, textures, badges, fonts stored in the original public folder, music/sound recordings, geographic datasets, store artwork and brand graphics are not included. No replacement media is provided. References to these files remain in the code; media-dependent functionality will be incomplete. A successful TypeScript check or Vite bundle does not prove playable behavior.
