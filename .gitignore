@@ -1,0 +1,15 @@
+node_modules/
+dist/
+artifacts/
+.env*
+*.p8
+*.p12
+*.pem
+*.key
+*.keystore
+*.jks
+*.mobileprovision
+.DS_Store
+GoogleService-Info.plist
+google-services.json
+MetaClientToken.txt
