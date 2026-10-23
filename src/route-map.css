@@ -1,0 +1,39 @@
+/* Journey cards: large artwork, a consistent caption baseline, and room to swipe. */
+#ui.screen-routes .route-grid{gap:16px;padding:4px 1px 14px;scrollbar-color:#b8a485 #142331}
+#ui.screen-routes .route-card{flex:0 0 clamp(230px,24vw,290px);height:clamp(290px,43vh,360px);border-radius:18px;border-color:#aac5db30;background:radial-gradient(ellipse at 60% 15%,#30415555,transparent 70%),linear-gradient(155deg,#132331,#09121d);box-shadow:inset 0 1px #ffffff08;isolation:isolate}
+#ui.screen-routes .card-top{top:18px;left:18px;right:18px;font-size:8px;letter-spacing:1px;color:#b1c6d8;z-index:3}
+#ui.screen-routes .card-planet{top:32px;right:-3%;width:106%;height:65%;mask-image:linear-gradient(#000 72%,transparent);pointer-events:none}
+#ui.screen-routes .card-planet:is(.earth,.luna,.mars,.jupiter){width:72%;height:auto;aspect-ratio:1;right:9%;top:38px}
+#ui.screen-routes .card-planet:is(.mercury,.venus,.neptune){background-position:center;background-size:auto 110%}
+#ui.screen-routes .card-planet.saturn{background-position:55% 46%;background-size:auto 160%}
+#ui.screen-routes .card-planet.uranus{background-position:center;background-size:auto 190%}
+#ui.screen-routes .card-planet.singularity{top:30px;height:66%;background-position:center;background-size:170% auto;transform:rotate(-9deg)}
+#ui.screen-routes .card-planet.horizon{top:32px;right:-12%;width:124%;height:69%;background:url('/textures/andromeda.png') center/cover no-repeat;transform:none;border-radius:0;box-shadow:none;mix-blend-mode:screen;mask-image:radial-gradient(ellipse at center,#000 42%,transparent 73%)}
+#ui.screen-routes .route-card:has(.horizon){border-color:#9dcfff55;background:radial-gradient(ellipse at 55% 35%,#32527544,transparent 75%),#0c1724}
+#ui.screen-routes .card-planet.kuiper{background:url('/textures/portrait-kuiper.png') center/cover no-repeat;clip-path:none;border-radius:0;box-shadow:none;transform:none}
+#ui.screen-routes .card-planet.void{background:url('/textures/portrait-void.png') center/cover no-repeat;border-radius:0;box-shadow:none;transform:none;mask-image:radial-gradient(ellipse at 50% 50%,#000 25%,#000b 48%,transparent 73%)}
+#ui.screen-routes .card-bottom{left:18px;right:18px;bottom:17px;padding-top:30px;z-index:2;background:linear-gradient(0deg,#0b1622 70%,transparent)}
+#ui.screen-routes .card-bottom>span{display:block;font-size:8px;letter-spacing:1.5px;color:var(--planet-accent);margin-bottom:7px}
+#ui.screen-routes .card-bottom h3{font-size:34px;line-height:1.02;font-style:normal;letter-spacing:.2px;margin:0;white-space:normal;overflow-wrap:break-word;color:#fff1df}
+#ui.screen-routes .route-card:has(.singularity) h3{font-size:29px}
+#ui.screen-routes .card-bottom p{display:block;font-size:10px;line-height:1.4;margin-top:8px;color:#9eb6ca;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#ui.screen-routes .card-stats{margin-top:15px;padding-top:11px;border-top:1px solid #bbd6eb22;font-size:8px;color:#b3cbdc;letter-spacing:.1px;gap:8px}
+#ui.screen-routes .route-card:has(.singularity){border-color:#c8a3ef70;background:radial-gradient(ellipse at 55% 30%,#6c385744,transparent 70%),#0d1422}
+@media(hover:hover){#ui.screen-routes .route-card:hover{border-color:#d8e9f070;background-color:#172838}}
+@media(max-height:500px){
+ #ui.screen-routes .route-card{flex-basis:210px;height:clamp(150px,44vh,200px);border-radius:13px}
+ #ui.screen-routes .route-grid{gap:12px;padding-bottom:9px}
+ #ui.screen-routes .card-top{top:11px;left:13px;right:13px;font-size:6px;letter-spacing:.5px}
+ #ui.screen-routes .card-planet{top:15px;height:82%;right:-15%;width:115%}
+ #ui.screen-routes .card-planet:is(.earth,.luna,.mars,.jupiter){width:66%;right:0;top:15px}
+ #ui.screen-routes .card-planet.singularity{height:85%;top:10px;background-size:160% auto}
+ #ui.screen-routes .card-planet.horizon{height:86%;top:3px;background-size:cover}
+ #ui.screen-routes .card-bottom{left:13px;right:13px;bottom:10px;padding-top:17px;background:linear-gradient(0deg,#0b1622 55%,#0b1622b0 78%,transparent)}
+ #ui.screen-routes .card-bottom>span,#ui.screen-routes .card-bottom p{display:none}
+ #ui.screen-routes .card-bottom h3{font-size:27px}
+ #ui.screen-routes .route-card:has(.singularity) h3{font-size:25px}
+ #ui.screen-routes .card-stats{margin-top:7px;padding-top:6px;font-size:7px}
+ #ui.screen-routes .section-heading p{font-size:8px}
+ #ui.screen-routes .mission-info p{max-width:400px;font-size:8px}
+}
+@media(max-height:350px){#ui.screen-routes .route-card{height:140px}#ui.screen-routes .section-heading h2{font-size:21px}#ui.screen-routes .mission-info p{display:none}}

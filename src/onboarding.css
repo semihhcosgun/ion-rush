@@ -1,0 +1,63 @@
+/* Guidance never catches steering/aiming input or covers the road centre. */
+.flight-coach,.lesson-handoff{position:absolute;z-index:7;left:50%;top:max(78px,calc(env(safe-area-inset-top) + 58px));transform:translateX(-50%);width:min(500px,calc(100% - 440px));color:#f6f1e5;text-align:center;pointer-events:none;text-shadow:0 1px 3px #000,0 0 5px #0008}
+.flight-coach{display:flex;align-items:flex-start;gap:10px}
+.coach-message{flex:1;min-width:0}
+.coach-message strong{display:block;font:700 13px/1.35 Manrope;color:#ffe0b6}
+.coach-message p{font:500 12px/1.5 Manrope;color:#f0f5f6;margin:4px 0 0}
+.flight-coach>button{flex-shrink:0;min-width:44px;min-height:44px;margin-top:-8px;padding:0 2px;pointer-events:auto;color:#c9d8dd;font:600 11px Manrope;text-shadow:0 1px 3px #000}
+.flight-coach.is-success strong{color:#aef0d2}
+.lesson-active :is(.goal-card,#tutorial,#lane-hint){visibility:hidden}
+.lesson-handoff{z-index:8}
+.handoff-copy strong{display:block;font:700 14px/1.4 Manrope;color:#b8f4dd}
+.handoff-copy p{font:500 12px/1.5 Manrope;margin:5px 0 0}
+.handoff-count{font-weight:800;color:#ffe0b6;font-variant-numeric:tabular-nums}
+@media(max-width:740px){.flight-coach,.lesson-handoff{width:calc(100% - 300px)}.coach-message strong,.handoff-copy strong{font-size:12px}.coach-message p,.handoff-copy p{font-size:11px}}
+@media(max-height:340px){.flight-coach,.lesson-handoff{top:68px}.coach-message p{margin-top:2px}}
+.settings-help-links{display:flex;align-items:center;flex-wrap:wrap;gap:4px 14px}
+#ui.screen-settings .settings-help-links button{min-height:24px;font-size:9px;padding:2px 0;color:#b6cbd6;text-align:left}
+#ui.screen-settings .settings-help-links [data-action=learnControls]{color:#95dfcf}
+@media(orientation:landscape) and (max-height:600px){#ui.screen-settings .settings:has([data-action=adPrivacy]) .settings-bottom p{display:none}#ui.screen-settings .settings:has([data-action=adPrivacy]) .settings-help-links{gap:0}}
+#ui.screen-settings .settings-help-links [data-action=learnControls]{border:1px solid #9ad9c95c;border-radius:6px;padding:4px 9px;background:#1b3a3f;color:#bdeddf;font-weight:700}
+
+/* The cue sits on the existing fire pad; it never catches input. */
+#fire[data-lesson-target]{outline:2px solid #ffe0a6;outline-offset:5px;box-shadow:0 0 20px #ffd28b66}
+#fire .lesson-hand{position:absolute;pointer-events:none;width:18px;height:18px;border:2px solid #fff2d8;border-radius:50%;background:#ffe0a666;left:calc(50% - 9px);top:calc(50% - 9px);animation:lesson-press 1.6s ease-in-out infinite}
+#fire[data-lesson-target=track] .lesson-hand{animation:lesson-drag 2.4s ease-in-out infinite}
+#fire.lesson-reminder{animation:lesson-reminder 2.4s ease-in-out infinite}
+@keyframes lesson-press{0%,100%{transform:scale(1);opacity:.5}45%,70%{transform:scale(.75);opacity:1}}
+@keyframes lesson-drag{0%,100%{transform:translateX(-14px);opacity:.6}50%{transform:translateX(14px);opacity:1}}
+@keyframes lesson-reminder{50%{outline-color:#fff5dc;box-shadow:0 0 28px #ffd28b99}}
+@media(prefers-reduced-motion:reduce){#fire.lesson-reminder,#fire .lesson-hand{animation:none}#fire[data-lesson-target=track] .lesson-hand{width:34px;border-radius:10px;left:calc(50% - 17px)}}
+
+.flight-coach>button{border:1px solid #c0d8df80;border-radius:8px;background:#102530e8;padding:6px 10px;margin-top:0;color:#e5f3f6;font-weight:700}
+@media(max-width:740px){.flight-coach{flex-wrap:wrap;justify-content:center;gap:5px}.coach-message{flex-basis:100%}.flight-coach>button{font-size:10px;min-height:36px;padding:4px 9px}}
+
+#fire .lesson-hand{width:30px;height:38px;border:0;border-radius:0;background:none;left:calc(50% - 15px);top:calc(50% - 12px);filter:drop-shadow(0 2px 3px #0009)}
+.lesson-hand>svg{display:block;width:100%;height:100%}
+.lesson-hand .lesson-drag-arrow{display:none;position:absolute;width:48px;height:14px;left:-9px;top:-17px}
+#fire[data-lesson-target=track] .lesson-drag-arrow{display:block}
+.flight-coach>button{display:flex;align-items:center;justify-content:center;gap:6px;min-width:48px;min-height:44px}
+.flight-coach>button>svg{width:27px;height:22px;flex-shrink:0}
+.flight-coach>button>span{max-width:95px;font-size:10px;line-height:1.2}
+@media(max-width:740px){.flight-coach>button>svg{width:28px;height:24px}.flight-coach>button{min-height:44px}}
+@media(prefers-reduced-motion:reduce){#fire[data-lesson-target=track] .lesson-hand{width:30px;border-radius:0;left:calc(50% - 15px)}}
+#ui #fire.aim-pad .lesson-hand{z-index:4}
+#ui #fire.aim-pad .lesson-hand>svg:first-child{width:30px;height:38px}
+#ui #fire.aim-pad .lesson-hand>.lesson-drag-arrow{width:48px;height:14px}
+
+#ui :is(.steer,#turbo)[data-lesson-target]{position:relative;outline:2px solid #ffe0a6;outline-offset:4px}
+#ui :is(.steer,#turbo) .lesson-hand{position:absolute;z-index:4;pointer-events:none;width:30px;height:38px;left:calc(50% - 15px);top:calc(50% - 12px);filter:drop-shadow(0 2px 3px #0009);animation:lesson-press 1.6s ease-in-out infinite}
+#ui :is(.steer,#turbo) .lesson-hand>svg:first-child{width:30px;height:38px}
+#ui :is(.steer,#turbo) .lesson-drag-arrow{display:none}
+@media(prefers-reduced-motion:reduce){#ui :is(.steer,#turbo) .lesson-hand{animation:none}}
+/* Large, high-contrast gesture cues stay entirely on the controls. */
+#ui [data-lesson-target] .lesson-hand{width:44px;height:56px;left:calc(50% - 22px);top:calc(50% - 16px);z-index:6;filter:drop-shadow(0 2px 2px #06111f) drop-shadow(0 0 7px #fff0bd);animation:lesson-press-bold 1.6s ease-in-out infinite}
+#ui #fire.aim-pad .lesson-hand>svg:first-child,#ui :is(.steer,#turbo) .lesson-hand>svg:first-child{width:44px;height:56px}
+#ui [data-lesson-target] .lesson-hand:before{content:'';position:absolute;z-index:-1;pointer-events:none;width:46px;height:46px;left:-1px;top:-10px;border:3px solid #fff2b8;border-radius:50%;background:#071b2bc9;box-shadow:0 0 0 5px #ffbd5559,0 0 18px #ffcf8280;animation:lesson-ring 1.6s ease-out infinite}
+#ui #fire.aim-pad .lesson-hand>.lesson-drag-arrow{width:64px;height:18px;left:-10px;top:-30px;filter:drop-shadow(0 1px 2px #06111f)}
+#ui #fire[data-lesson-target=track] .lesson-hand{animation:lesson-drag-bold 2.4s ease-in-out infinite}
+#ui :is(.steer,#turbo,#fire)[data-lesson-target]{outline:3px solid #ffe4a3;outline-offset:5px}
+@keyframes lesson-press-bold{0%,100%{transform:translateY(-5px) scale(1.08)}45%,70%{transform:translateY(3px) scale(.95)}}
+@keyframes lesson-ring{0%{opacity:.45;transform:scale(.85)}50%{opacity:1;transform:scale(1.15)}100%{opacity:.45;transform:scale(.85)}}
+@keyframes lesson-drag-bold{0%,100%{transform:translateX(-17px)}50%{transform:translateX(17px)}}
+@media(prefers-reduced-motion:reduce){#ui [data-lesson-target] .lesson-hand,#ui #fire[data-lesson-target=track] .lesson-hand,#ui [data-lesson-target] .lesson-hand:before{animation:none}}

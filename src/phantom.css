@@ -1,0 +1,6 @@
+.phantom-ability{border-color:#ef8cdd44;background:linear-gradient(120deg,#ef8cdd10,#08162199);color:#f7b9ee}
+.phantom-ability .garage-ability-icon{border-color:#ef8cdd35;background:#ef8cdd0c}.phantom-ability .garage-ability-copy>small{color:#95bdd7}.phantom-ability h3{color:#ffe0fb}.phantom-ability .garage-ability-stats{color:#a2cfe9}.phantom-ability .garage-ability-stats span+span{border-color:#a2cfe933}.phantom-ability .garage-ability-open{color:#a2d4f4}.phantom-ability .garage-ability-open:focus-visible{outline-color:#ef8cdd}.phantom-ability .garage-ability-open:hover{background:#ef8cdd08}
+.weapon .phantom-status{font:600 7px/1.2 Manrope,sans-serif;white-space:nowrap;letter-spacing:.2px;padding:3px 6px;min-height:9px;border:1px solid #b1cad52b;border-radius:4px;background:#07121ce6;color:#b1c3d0;text-shadow:0 1px 2px #000}
+.weapon .phantom-status[data-ready=true]{color:#b4e0ff;border-color:#ef8cdd55;background:#122633ed}.weapon .phantom-status[data-phased=true]{color:#e6f6ff;border-color:#a1dcff;background:#1b415cf2;box-shadow:0 0 10px #ef8cdd33}
+
+.fire-button.phased{border-color:#ef8cdd88;filter:saturate(.45);opacity:.7}.fire-button.phased b{color:#ef8cdd}

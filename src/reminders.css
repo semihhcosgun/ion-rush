@@ -1,0 +1,15 @@
+.reminder-choice{width:min(650px,92vw);max-height:90dvh;padding:0;border:1px solid #9adbd448;border-radius:22px;background:#0c1925;color:#eef3ed;box-shadow:0 24px 90px #000a;overflow:auto}
+.reminder-choice[open]{display:grid;grid-template-columns:.72fr 1fr}
+.reminder-choice::backdrop{background:#030a14c9;backdrop-filter:blur(5px)}
+.reminder-art{position:relative;min-height:250px;overflow:hidden;background:#0c1925}
+.reminder-art img{position:absolute;inset:3% 0;width:100%;height:94%;object-fit:contain;filter:none;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent),linear-gradient(transparent,#000 4%,#000 96%,transparent);mask-composite:intersect}
+.reminder-copy{padding:30px 28px 24px 10px}.reminder-copy .eyebrow{font-size:8px;letter-spacing:1.5px;color:#8de8d7}
+.reminder-copy h2{font:700 36px/.98 'Barlow Condensed',sans-serif;margin:12px 0;color:#fff0d7}
+.reminder-copy p{font:400 11px/1.6 Manrope,sans-serif;color:#b4c9cf;margin:0 0 12px}
+.reminder-promise{display:grid;gap:5px;padding:11px 0 15px;border-top:1px solid #9adbd425;font:600 9px/1.5 Manrope,sans-serif;color:#d6ded7}
+.reminder-promise span:before{content:'·';color:#84ebd4;margin-right:7px}
+.reminder-copy .primary{width:100%;border-radius:10px;clip-path:none;gap:8px;padding:0 15px;font-size:9px;letter-spacing:.6px;background:linear-gradient(#a1f2dc,#74d8c1);box-shadow:inset 0 1px #dcfff4,0 3px 0 #28554f}
+.reminder-later{display:block;width:100%;min-height:34px;font:700 9px Manrope;letter-spacing:1px;color:#aec5ca;margin-top:7px}
+.reminder-copy>small{display:block;font:400 8px/1.5 Manrope;color:#829ba7;text-align:center}.reminder-copy .reminder-status{font-size:9px;margin:7px 0 0;color:#ffda9b}
+@media(max-height:450px){.reminder-copy{padding:18px 22px 14px 8px}.reminder-copy h2{font-size:30px;margin:8px 0}.reminder-copy p{font-size:10px;margin-bottom:8px}.reminder-promise{padding:8px 0 10px;font-size:8px}.reminder-copy .primary{height:38px}.reminder-art{min-height:220px}}
+@media(max-width:500px){.reminder-choice[open]{grid-template-columns:1fr}.reminder-art{display:none}.reminder-copy{padding:22px}}

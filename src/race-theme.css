@@ -1,0 +1,122 @@
+/* Race cockpit: restrained surfaces, coral actions and turquoise telemetry. */
+:is(.screen-race,.screen-countdown,.screen-crash){--hud-bg:#0b1724df;--hud-line:#b5d2df30;--hud-text:#f3eee5;font-variant-numeric:tabular-nums}
+:is(.screen-race,.screen-countdown,.screen-crash):before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(#030b16b3,transparent 30%,transparent 70%,#030b1666);z-index:-1}
+.race-top{gap:18px;height:52px;align-items:center}
+.race-mission{min-width:120px;padding-left:12px;border-left:3px solid #7be4d1}
+.race-mission .eyebrow{font:600 9px Manrope;letter-spacing:1.8px;color:#8ce3d7}
+.race-mission strong{font:600 34px/1 'Barlow Condensed';color:var(--hud-text);letter-spacing:.5px;margin-top:5px}
+.race-mission strong small{font:600 9px Manrope;color:#a2b4c1;margin-left:4px}
+.race-progress{border:0;background:none;padding:0 12px;border-radius:0;max-width:300px}
+.race-progress>div:first-child{font:600 9px Manrope;letter-spacing:1px;color:#c0ced5}
+.progress-track{height:3px;margin-top:10px;background:#afc8d327;overflow:hidden;border-radius:0}.progress-track i{background:#83e4d2;box-shadow:none}
+.race-score{text-align:right;padding-right:4px}.race-score>.tiny{font:600 8px Manrope;letter-spacing:2px;color:#9fadb8}.race-score strong{font:600 34px/1 'Barlow Condensed';color:var(--hud-text);margin-top:5px}
+.pause-button{border-radius:12px;background:var(--hud-bg);border-color:var(--hud-line);box-shadow:inset 0 1px #ffffff0d}.pause-button svg{width:18px;height:18px}
+.left-instruments{top:83px;padding:9px 12px;border-radius:4px 12px 12px 4px;border:1px solid var(--hud-line);background:var(--hud-bg);gap:12px}
+.lives{min-width:62px;gap:4px;align-items:center}.lives span{display:block;width:18px;height:8px;transform:skewX(-15deg);font-size:0;border:1px solid #8bcabc40;border-radius:1px}.heart-full{background:#87e4ce;box-shadow:0 0 7px #71e1c51a}.heart-empty{background:#304452}
+.combo{padding-left:10px;gap:7px}.combo>b{font:600 26px/1 'Barlow Condensed';color:#f5e9d9}.combo>span{font:600 8px/1.3 Manrope;color:#b0c1ca;max-width:60px}
+.goal-card{top:84px;width:144px;padding:9px 11px;background:linear-gradient(100deg,#0b1724aa,#0b1724ee);border-right:2px solid #e5a076;border-radius:7px 0 0 7px;gap:5px}
+.goal-card>.tiny{font:600 7px Manrope;letter-spacing:1.5px;color:#bda893}.goal-card strong{font:600 11px Manrope;color:#eee9df}.goal-card small{font:600 8px Manrope;color:#a6bac7}.goal-track{height:2px;background:#a2b3c021}.goal-track i{background:#efaa7f}
+.lane-hint{display:none}.notice{top:82px;width:calc(100% - 390px);font:600 10px/1.5 Manrope;letter-spacing:.3px;color:#f4e8d9;text-shadow:0 2px 6px #000;pointer-events:none}.feedback{top:37%;font:600 16px 'Barlow Condensed';letter-spacing:.7px;color:#aff4df}
+.control-pair .dual-steer{border-radius:22px;background:linear-gradient(145deg,#1b3346e8,#091623eb);border:1px solid #b5d2df50;box-shadow:inset 0 1px #eef9ff1c,0 5px 18px #0003;gap:6px}
+.control-pair .dual-steer .control-icon{margin:0}.control-pair .dual-steer .control-icon svg{width:32px;height:32px;color:#ebf1ed;stroke-width:1.8}
+.control-pair .dual-steer small{font:700 8px Manrope;letter-spacing:1.5px;color:#c3d3dc}.control-pair .dual-steer .swipe-label{display:none}
+.control-pair .dual-steer.gesture-held{background:#315568;border-color:#a4eede;box-shadow:inset 0 0 0 2px #82e2d522}
+.weapon>span{font:600 8px Manrope;letter-spacing:.5px;color:#c2cdd5;text-shadow:0 2px 3px #000;max-width:150px;overflow:hidden;text-overflow:ellipsis}
+#fire.aim-pad{background:radial-gradient(circle at 50% 50%,#d9855730 0 31%,#0c1924de 32% 100%);border:1px solid #edab8180;box-shadow:inset 0 0 0 5px #df97600b,0 4px 18px #0002}
+#fire.aim-pad:before{border:1px solid #d4b79a35;inset:11px}
+#fire.aim-pad>b{background:linear-gradient(140deg,#e5a477,#a46243);color:#101e29;border:1px solid #f6c49c;box-shadow:0 2px 9px #0006;width:38px;height:38px}
+#fire.aim-pad small{font:700 8px Manrope;letter-spacing:2px;color:#f4d7bd;bottom:10px}
+#fire.overheated{opacity:.7;border-color:#ed6d5f}#fire.overheated>b{background:#bf6652}
+.turbo-button{border-radius:20px;background:linear-gradient(145deg,#193b3eeb,#0d202ceb);border:1px solid #91e3cf80;box-shadow:inset 0 1px #cbfff21a}
+.turbo-button svg{width:27px;height:27px}.turbo-button small{font:700 8px Manrope;letter-spacing:1.4px}.turbo-button:disabled{opacity:.8;filter:none}.turbo-button.ready{background:linear-gradient(145deg,#a1eed5,#58b9aa);color:#102c34;border-color:#c0ffe8;box-shadow:0 0 0 3px #87e4d21a}.turbo-button.ready small{color:#102c34}
+.heat-track{height:4px;background:#b6c2cb24;border-radius:2px}.heat-track i{background:#e7a172;transition:width .08s linear}.turbo-weapon .heat-track i{background:#87e4d2}
+.speedometer{border-radius:6px;border:0;border-top:1px solid #c6d9e336;background:linear-gradient(#0b1926df,#0b19269c);padding:9px 14px 7px;min-width:138px;box-shadow:none}.speed b{font:600 30px/1 'Barlow Condensed';color:#eeeae0}.speed span{font:600 7px Manrope;letter-spacing:1px;color:#9bb1bf}.charge-row i{border-radius:1px;height:3px}.lane-dots{font-size:9px;color:#b2eee0}.power{font:600 7px Manrope;letter-spacing:.5px;color:#9cded0}
+#countdown{font-family:'Barlow Condensed';color:#f6eee1;text-shadow:0 4px 30px #051420}
+@media(max-width:660px){.race-top{gap:10px}.race-mission{min-width:95px}.race-progress{padding:0 2px}.race-progress>div:first-child{font-size:8px;letter-spacing:0}.race-mission strong,.race-score strong{font-size:28px}.goal-card{width:120px;padding:7px 8px}.notice{width:calc(100% - 310px);font-size:8px}.left-instruments{gap:8px;padding:7px 8px}.lives{min-width:50px}.lives span{width:14px}.combo>span{max-width:47px;font-size:7px}}
+@media(max-height:340px){.race-top{height:44px}.left-instruments,.goal-card{top:65px}.goal-card>.tiny{display:none}.notice{top:68px}.race-mission .eyebrow{font-size:8px}.race-progress{max-width:190px}.control-pair .dual-steer{border-radius:18px}.weapon>span{font-size:7px}.speedometer{padding:6px 10px}.feedback{font-size:14px}}
+/* Keep the objective clear of the aiming status in short landscape. */
+@media(min-height:341px) and (max-height:450px){.goal-card{top:76px;gap:3px;padding:7px 10px}.goal-card>.tiny,.goal-card strong,.goal-card small{line-height:1.25}}
+.lives:before{content:'';display:none}
+@media(max-width:660px){.lives:before{display:none}}
+
+/* Distance and score behave like reward instruments instead of plain labels. */
+.race-mission,.race-score{position:relative;height:58px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(110deg,#0b1b29e8,#0a1622bd);border:1px solid #aacbd52f;box-shadow:inset 0 1px #e9ffff0b,0 6px 18px #02081124}
+.race-mission{min-width:148px;padding:6px 17px 7px;border-left:3px solid #7be4d1;border-radius:4px 12px 12px 4px}.race-mission:after{content:"";position:absolute;left:0;top:9px;bottom:9px;width:2px;background:#a0ffe9;box-shadow:0 0 12px #75eed8}
+.race-mission .eyebrow{font-size:8px;letter-spacing:1.5px}.race-mission strong{margin-top:4px;font-size:36px;font-weight:700;letter-spacing:.8px;text-shadow:0 2px 7px #000}.race-mission strong small{display:inline-flex;align-items:center;height:17px;margin-left:6px;padding:0 6px;border:1px solid #7bd7c84a;border-radius:4px;color:#9ee6d9;font-size:7px;letter-spacing:1px;background:#17313a99;vertical-align:5px}
+.race-score{min-width:108px;align-items:flex-end;padding:6px 15px 7px;border-right:3px solid #eea275;border-radius:12px 4px 4px 12px;background:linear-gradient(250deg,#2b1c1ad9,#0a1724df 62%)}.race-score:after{content:"";position:absolute;right:0;top:9px;bottom:9px;width:2px;background:#ffc092;box-shadow:0 0 13px #f5a06d}.race-score>.tiny{color:#d4aa91;font-size:7px;letter-spacing:2.2px}.race-score strong{margin-top:3px;font-size:36px;font-weight:700;letter-spacing:1px;color:#fff1d9;text-shadow:0 2px 8px #000,0 0 16px #ee9a5430}
+.race-score.score-earned:before,.race-mission.distance-earned:before{position:absolute;z-index:4;pointer-events:none;opacity:0;white-space:nowrap;font:800 11px 'Barlow Condensed',sans-serif;letter-spacing:.8px}.race-score.score-earned:before{content:attr(data-gain);right:13px;bottom:-6px;color:#ffc08d;text-shadow:0 0 10px #ff945a;animation:score-gain .8s ease-out both}.race-mission.distance-earned:before{content:attr(data-milestone);left:16px;bottom:-7px;color:#9affea;text-shadow:0 0 10px #67e7cf;font-size:9px;animation:distance-gain .95s ease-out both}.race-score.score-earned strong{animation:score-number .42s ease-out}.race-mission.distance-earned strong{animation:distance-number .55s ease-out}
+@keyframes score-gain{0%{opacity:0;transform:translateY(5px) scale(.8)}18%{opacity:1;transform:translateY(0) scale(1.18)}65%{opacity:1}100%{opacity:0;transform:translateY(-17px) scale(1)}}@keyframes distance-gain{0%{opacity:0;transform:translateY(3px)}20%{opacity:1;transform:translateY(0)}70%{opacity:1}100%{opacity:0;transform:translateY(-12px)}}@keyframes score-number{45%{color:#ffc28f;transform:scale(1.13);filter:drop-shadow(0 0 8px #ff9b63)}}@keyframes distance-number{45%{color:#a4ffec;transform:scale(1.08);filter:drop-shadow(0 0 8px #75ead5)}}
+@media(max-width:660px){.race-mission{min-width:112px;padding-inline:11px}.race-score{min-width:82px;padding-inline:10px}.race-mission strong,.race-score strong{font-size:29px}.race-mission strong small{vertical-align:3px}.race-score.score-earned:before{right:9px}}
+@media(prefers-reduced-motion:reduce){.race-score.score-earned:before,.race-mission.distance-earned:before,.race-score.score-earned strong,.race-mission.distance-earned strong{animation:none}}
+
+/* A brief reward marker belongs to the health meter, leaving the road clear. */
+.lives{position:relative}
+/* Persistent damage feedback, with motion reserved for the final health point. */
+.lives span,.lives+.tiny{transition:background .3s,color .3s,border-color .3s,box-shadow .3s}
+.lives[data-health="2"] .heart-full{background:#ffb65c;border-color:#ffce8f;box-shadow:0 0 9px #ff9b3b55}
+.lives[data-health="2"]+.tiny{color:#ffc17c}
+.lives[data-health="1"] .heart-full{background:#ff666c;border-color:#ffb0af;box-shadow:0 0 12px #ff454f80}
+.lives[data-health="1"]+.tiny,.lives[data-health="0"]+.tiny{color:#ff9295}
+.screen-race .lives[data-health="1"] .heart-full{animation:hull-heartbeat 1.65s ease-in-out infinite}
+.screen-race:has(.lives[data-health="1"]):before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at center,transparent 58%,#dc354b12 80%,#de314534 100%);box-shadow:inset 0 0 35px #de31451c;animation:hull-warning 1.65s ease-in-out infinite}
+@keyframes hull-heartbeat{0%,100%{filter:brightness(1)}45%{filter:brightness(1.4)}}
+@keyframes hull-warning{0%,100%{opacity:.45}45%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.screen-race .lives[data-health="1"] .heart-full,.screen-race:has(.lives[data-health="1"]):before{animation:none}}
+.lives.health-gained:after{content:attr(data-gain);position:absolute;left:50%;top:-8px;color:#c4ffea;font:700 17px 'Barlow Condensed',sans-serif;pointer-events:none;opacity:0;text-shadow:0 0 8px #80f4c980;animation:health-gain .75s .32s ease-out both}
+@keyframes health-gain{0%{opacity:0;transform:translate(-50%,0) scale(.75)}20%{opacity:1;transform:translate(-50%,-9px) scale(1.12)}65%{opacity:1}100%{opacity:0;transform:translate(-50%,-24px) scale(1)}}
+@media(prefers-reduced-motion:reduce){.lives.health-gained:after{animation:none}}
+
+/* Premium cockpit controls: distinct functions, one shared material language. */
+.control-pair .dual-steer{position:relative;overflow:hidden;border-radius:18px;background:radial-gradient(circle at 50% 18%,#29485a,#142a3ae8 48%,#091723f2 100%);border:1px solid #9dc9d45c;box-shadow:inset 0 1px #e9ffff28,inset 0 -10px 20px #030a1294,0 7px 20px #02070d55}
+.control-pair .dual-steer:before{content:"";position:absolute;inset:5px;border:1px solid #8fbac62b;border-radius:13px;pointer-events:none}.control-pair .dual-steer:after{content:"";position:absolute;left:27%;right:27%;bottom:5px;height:2px;border-radius:2px;background:#8be8d5;box-shadow:0 0 8px #70e6cf99;opacity:.55}
+.control-pair .dual-steer .control-icon{position:relative;width:43px;height:39px;display:grid;place-items:center;margin:0 0 4px;border:1px solid #b8dae13d;border-radius:12px;background:linear-gradient(145deg,#233f50,#102330);color:#d8f7f2;box-shadow:inset 0 1px #efffff24,0 4px 9px #02081166}.control-pair .dual-steer .control-icon svg{width:26px;height:26px;stroke-width:1.9;filter:drop-shadow(0 0 4px #7debd54f)}.control-pair .dual-steer small{position:relative;z-index:1;color:#cce0e4;letter-spacing:1.7px}
+.control-pair .dual-steer:active{transform:translateY(2px) scale(.975);background:radial-gradient(circle at 50% 35%,#3c756f,#173c43 55%,#0b202b);border-color:#b8ffef;box-shadow:inset 0 0 18px #73e6ce40,0 2px 8px #02070d}.control-pair .dual-steer:active:after{opacity:1;background:#c7fff1}.control-pair .dual-steer:active .control-icon{transform:scale(.94);background:#315f62;color:#fff}
+.turbo-weapon .turbo-button{position:relative;overflow:hidden;border-radius:15px;border:1px solid #526770;background:linear-gradient(155deg,#2a3a43,#11212a 66%);color:#d5e4e8;box-shadow:inset 0 1px 0 #d0e7ec26,inset 0 0 0 5px #0c1921,0 5px 12px #0008;gap:5px;transition:background .2s,border-color .2s,box-shadow .2s}
+.turbo-weapon .turbo-button:before{content:"";position:absolute;inset:6px;border:1px solid #9fb9c318;border-radius:9px;pointer-events:none}
+.turbo-weapon .turbo-button:after{content:"";position:absolute;left:11px;right:11px;top:0;bottom:auto;height:1px;background:linear-gradient(90deg,transparent,#b3d4d780,transparent);opacity:1;box-shadow:none}
+.turbo-weapon .turbo-button>b{position:relative;z-index:1;width:34px;height:28px;background:none;border:0;border-radius:0}
+.turbo-weapon .turbo-button svg{width:30px;height:30px;filter:drop-shadow(0 1px 1px #0008)}
+.turbo-weapon .turbo-button small{font:700 7px Manrope;letter-spacing:1.6px;color:#bccbd1;position:relative;z-index:1}
+.turbo-weapon .turbo-button:disabled{opacity:1;filter:none;color:#9dabb3}
+.turbo-weapon .turbo-button.ready{color:#e1fff2;border-color:#86c8b8;background:linear-gradient(155deg,#315952,#12302e 66%);box-shadow:inset 0 1px 0 #d6fff03d,inset 0 0 0 5px #0b2325,0 5px 12px #0008,0 0 12px #6bd9b51a}
+.turbo-weapon .turbo-button.ready small{color:#b5efd9}.turbo-weapon .turbo-button.ready>b{background:none;border:0}.turbo-weapon .turbo-button.ready:before{border-color:#a1edce26}
+.turbo-weapon .heat-track{height:4px;width:calc(var(--action) - 10px);border-radius:0;background:#677c8938;mask-image:repeating-linear-gradient(90deg,#000 0 calc(20% - 3px),transparent calc(20% - 3px) 20%)}
+.turbo-weapon .heat-track i{background:#9ed8c8;border-radius:0;box-shadow:none}
+.turbo-weapon>span{font-variant-numeric:tabular-nums;color:#b7c5ce;letter-spacing:.6px}
+.turbo-active .turbo-weapon .turbo-button{border-color:#c9a575;color:#f5d4a4;background:linear-gradient(155deg,#494536,#222b2c 66%)}
+@media(max-height:450px){.turbo-weapon .turbo-button{border-radius:13px;gap:3px}.turbo-weapon .turbo-button svg{width:27px;height:27px}.turbo-weapon .turbo-button small{font-size:7px}}
+@media(prefers-reduced-motion:reduce){.turbo-weapon .turbo-button{transition:none}}
+#fire.aim-pad{position:relative;background:radial-gradient(circle at 50% 50%,#8e56364a 0 19%,#3b29242e 20% 35%,#101d28e8 36% 61%,#07131ff2 62% 100%);border:1px solid #e4a06f70;box-shadow:inset 0 0 0 5px #e29a6808,inset 0 1px #ffe4cf20,0 7px 22px #02070d66}
+#fire.aim-pad:before{inset:9px;border:1px solid #d7a9814d;border-radius:50%;background:repeating-conic-gradient(from -2deg,#e5af846b 0 1deg,transparent 1deg 24deg);mask:radial-gradient(circle,transparent 0 80%,#000 81%);opacity:.7;animation:reticle-idle 12s linear infinite}
+#fire.aim-pad:after{content:"";position:absolute;inset:22px;border:1px solid #f0b07b32;border-radius:50%;box-shadow:inset 0 0 14px #e6905520;pointer-events:none}
+#fire.aim-pad>b{z-index:2;width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 38% 32%,#ffc396,#d17c4e 52%,#84412e);border:1px solid #ffd5b4;box-shadow:inset 0 1px #fff5,0 3px 10px #0008,0 0 0 6px #da87521a}#fire.aim-pad>b svg{width:22px;height:22px;stroke-width:1.8}#fire.aim-pad small{z-index:2;color:#f5d8bf;letter-spacing:2.1px}
+#fire.aim-pad.target-locked{border-color:#ffc08e;box-shadow:inset 0 0 0 5px #e29a6810,0 0 0 3px #e79b5c12,0 0 22px #ee925b4f}#fire.aim-pad.target-locked:before{border-color:#ffc79a9c;opacity:1;animation-duration:3.8s}#fire.aim-pad.target-locked:after{border-color:#ffbd875c;animation:target-breathe 1s ease-in-out infinite}#fire.aim-pad.target-locked>b{box-shadow:inset 0 1px #fff7,0 3px 10px #0008,0 0 0 6px #f6a16022,0 0 15px #ff995e8f}
+#fire.aim-pad:active{transform:scale(.975);filter:brightness(1.12)}#fire.aim-pad.overheated{filter:saturate(.45);border-color:#d96d61;box-shadow:inset 0 0 20px #b33d3340}
+@keyframes reticle-idle{to{rotate:360deg}}@keyframes target-breathe{50%{scale:.9;opacity:.45}}
+@media(prefers-reduced-motion:reduce){#fire.aim-pad:before,#fire.aim-pad.target-locked:after{animation:none}}
+.rift-overlay{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:0;overflow:hidden;transition:opacity .25s}.rift-overlay:before,.rift-overlay:after{content:"";position:absolute;inset:-18%;border-radius:50%;border:2px solid #79f5e84a;box-shadow:inset 0 0 80px #60ead72b;transform:scale(1.35)}.rift-overlay:after{inset:-8%;border-color:#c786ff38;animation:rift-lens 1.8s ease-in-out infinite}.rift-overlay>i{position:absolute;inset:0;background:radial-gradient(circle at 50% 48%,transparent 0 30%,#73ead812 58%,#4c68a22c 100%)}.rift-overlay.active{opacity:1;animation:rift-flash .75s ease-out}.rift-overlay.transit{opacity:calc(.08 + var(--rift-intensity)*.78);animation:none;backdrop-filter:blur(calc(var(--rift-intensity)*4px)) saturate(calc(1 + var(--rift-intensity)*.55))}.rift-overlay.transit:before{inset:-24%;border-width:7px;border-color:#a884ff70;box-shadow:inset 0 0 110px #7d52d47d,0 0 90px #6ee9e44a;transform:scale(calc(1.36 - var(--rift-intensity)*.68));filter:blur(calc(1px + var(--rift-intensity)*3px));animation:rift-liquid 1.1s ease-in-out infinite alternate}.rift-overlay.transit:after{inset:-13%;border-width:4px;transform:scale(calc(1.24 - var(--rift-intensity)*.42));filter:blur(2px);animation:rift-liquid-reverse .85s ease-in-out infinite alternate}.rift-overlay.transit.exit:before,.rift-overlay.transit.exit:after{animation-direction:alternate-reverse}.rift-overlay.transit>i{background:repeating-radial-gradient(ellipse at 50% 48%,transparent 0 8%,#b69aff0b 10%,transparent 13%),radial-gradient(ellipse at 50% 48%,#07030f55 0 17%,#9c75ff30 33%,#72e7db30 56%,#170b326b 100%);filter:saturate(1.45);transform:scale(calc(1.08 - var(--rift-intensity)*.1))}.rift-overlay.black{opacity:.8}.rift-overlay.black:before{border-color:#ff9b5966;box-shadow:inset 0 0 130px #7422a64d}.rift-overlay.black>i{background:radial-gradient(circle at 50% 48%,transparent 0 22%,#21092320 45%,#02030a80 100%)}
+.rift-overlay.black.transit{opacity:calc(.08 + var(--rift-intensity)*.78)}.rift-overlay.black.transit>i{background:repeating-radial-gradient(ellipse at 50% 48%,transparent 0 7%,#ff9b590b 9%,transparent 12%),radial-gradient(ellipse at 50% 48%,#0101069c 0 18%,#6e258052 35%,#d1724b28 57%,#02030a8c 100%)}
+@keyframes rift-liquid{from{border-radius:47% 53% 50% 46%;rotate:-1.2deg}to{border-radius:53% 47% 45% 54%;rotate:1.4deg}}@keyframes rift-liquid-reverse{from{border-radius:52% 48% 55% 46%;rotate:1deg}to{border-radius:46% 54% 47% 53%;rotate:-1.3deg}}@keyframes rift-lens{50%{transform:scale(.96);filter:hue-rotate(22deg)}}@keyframes rift-flash{0%{opacity:0;filter:brightness(3)}35%{opacity:.9}100%{opacity:.25}}
+@media(prefers-reduced-motion:reduce){.rift-overlay,.rift-overlay:after{animation:none}}
+.rift-guide{position:absolute;z-index:5;top:83px;left:50%;width:min(480px,calc(100% - 190px));transform:translateX(-50%);opacity:0;text-align:center;pointer-events:none;text-shadow:0 1px 3px #000,0 0 5px #0008}.rift-guide.visible{opacity:1}.rift-guide small,.rift-guide span{display:block;font:600 10px/1.4 Manrope;color:#a2edda}.rift-guide strong{display:block;margin:3px 0;font:700 13px/1.4 Manrope;color:#edfff9}.rift-guide span{color:#f4d7b5}.rift-guide.black small{color:#dfb8ff}@media(max-height:340px){.rift-guide{top:68px}.rift-guide strong{font-size:12px}}
+
+/* Keep the physical suction visible instead of covering it with a screen filter. */
+.rift-overlay.transit{opacity:0!important;backdrop-filter:none}.rift-transit .rift-guide,.rift-transit #tutorial,.rift-transit #notice,.rift-transit #feedback{opacity:0!important}
+
+/* Keep frequently changing HUD panels off the full-screen gradient paint layer.
+   No clipping, scaling, blur removal, or animation changes. */
+.screen-race :is(.race-mission,.race-score,.race-progress,.left-instruments,.goal-card,.weapon,.speedometer,.earth-support-control){will-change:transform}
+
+/* The final scene pass draws these exact shades once; critical-health red stays here. */
+#ui.hud-in-canvas{background:none!important}
+.hud-in-canvas:not(:has(.lives[data-health="1"])):before{background:none}
+
+/* Moving fills use their own small surfaces instead of relaying out the cockpit. */
+:is(.screen-race,.screen-countdown) :is(.progress-track,.goal-track,.heat-track)>i{width:100%;transform:scaleX(0);transform-origin:left center;will-change:transform}
+:is(.screen-race,.screen-countdown) .heat-track>i{transition:transform .08s linear}
+:is(.screen-race,.screen-countdown) .charge-row i{position:relative;background:#49716e66}
+:is(.screen-race,.screen-countdown) .charge-row i:before{content:'';position:absolute;inset:0;background:var(--aqua);border-radius:inherit;transform:scaleX(var(--charge,1));transform-origin:left center;will-change:transform}
+#countdown:empty{display:none}
+/* The 3D transit already replaces this invisible legacy screen effect. */
+.rift-overlay.transit{display:none}
+.rift-overlay:not(.active):not(.black):before,.rift-overlay:not(.active):not(.black):after{animation-play-state:paused}

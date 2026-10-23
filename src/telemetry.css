@@ -1,0 +1,30 @@
+.analytics-choice{max-width:550px;width:calc(100% - 36px);padding:30px;border:1px solid #7cbaa966;border-radius:22px;color:#e8eee9;background:linear-gradient(145deg,#172b36,#08121e);box-shadow:0 25px 90px #0009}.analytics-choice::backdrop{background:#020912b8;backdrop-filter:blur(7px)}.analytics-choice h2{font-size:34px;margin:14px 0}.analytics-choice p{font-size:13px;line-height:1.7;color:#b9cbd0}.analytics-choice form>div{display:flex;gap:12px;margin-top:24px}.analytics-choice button{flex:1;font-size:13px;padding:14px}.setting-row button:disabled{opacity:.35;cursor:default}
+.analytics-choice .secondary{flex:0 0 auto;min-height:44px;padding:10px 14px;font-size:11px;letter-spacing:.8px;background:transparent;box-shadow:none;color:#becbd0;border-color:#7cbaa933}
+.analytics-choice{width:min(640px,92vw);max-width:640px;max-height:90dvh;padding:0;border:1px solid #9adbd448;border-radius:22px;background:#0c1925;color:#eef3ed;overflow:auto;box-shadow:0 24px 90px #000a}
+.analytics-choice form{display:grid;grid-template-columns:.65fr 1fr;align-items:stretch}
+.analytics-choice form>div{display:block;margin:0}
+.analytics-pilot{position:relative;min-height:255px}
+.analytics-pilot img{position:absolute;inset:4% 0;width:100%;height:92%;object-fit:contain;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent),linear-gradient(transparent,#000 4%,#000 96%,transparent);mask-composite:intersect}
+.analytics-copy{padding:27px 26px 25px 8px}
+.analytics-copy .eyebrow{font:700 8px Manrope;letter-spacing:1.3px;color:#8de8d7}
+.analytics-choice h2{font:700 35px/.98 'Barlow Condensed';margin:11px 0;color:#fff0d7}
+.analytics-choice p{font:400 11px/1.6 Manrope;color:#bdcdd2;margin:0 0 10px}
+.analytics-copy>small{display:block;font:400 9px/1.5 Manrope;color:#91aab5}
+.analytics-copy details{margin-top:10px}.analytics-copy summary{width:max-content;cursor:pointer;color:#a8ded4;font:600 10px Manrope;padding:7px 0;min-height:28px}
+.analytics-copy details p{font-size:9px;line-height:1.6;padding:8px 0;border-top:1px solid #91aab52b;margin:0}
+.analytics-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}
+.analytics-choice .analytics-actions button{min-width:0;width:100%;height:42px;min-height:42px;display:flex;justify-content:center;align-items:center;padding:0 10px;clip-path:none;border-radius:9px;font:700 9px Manrope;letter-spacing:.4px}
+.analytics-choice .analytics-actions .primary{background:linear-gradient(#a1f2dc,#74d8c1);color:#102b2b;border:1px solid #c5f7e9}
+.analytics-choice .analytics-actions .secondary{background:#152935;color:#d3e7e8;border:1px solid #91b9c373}
+@media(max-height:450px){.analytics-copy{padding:20px 23px 18px 7px}.analytics-choice h2{font-size:30px;margin:8px 0}.analytics-choice p{font-size:10px}.analytics-pilot{min-height:240px}}
+@media(max-width:500px){.analytics-choice form{grid-template-columns:90px 1fr}.analytics-pilot{min-height:180px}.analytics-copy{padding:20px 16px 18px 5px}.analytics-choice h2{font-size:27px}.analytics-actions{grid-template-columns:1fr}}
+/* Emphasize sharing while keeping the decline action clear and accessible. */
+.analytics-actions{grid-template-columns:minmax(110px,.7fr) minmax(0,1.3fr)}
+.analytics-choice .analytics-actions .secondary{font-size:8px;padding-inline:8px}
+.analytics-choice .analytics-actions .primary{font-size:11px}
+@media(max-width:500px){.analytics-actions{grid-template-columns:1fr}.analytics-choice .analytics-actions .primary{grid-row:1}}
+.analytics-choice .analytics-actions button{font-family:'Nunito',sans-serif;font-weight:900}
+.analytics-choice .analytics-actions .primary{font-size:13px}
+.analytics-choice .analytics-actions .secondary{font-size:10px}
+.analytics-copy summary{font-size:8px;padding:5px 0;min-height:26px;color:#96b8bf;border:0;outline:none;box-shadow:none}
+.analytics-copy summary:focus-visible{text-decoration:underline;text-underline-offset:3px;color:#c6eee6}

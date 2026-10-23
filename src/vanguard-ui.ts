@@ -1,0 +1,10 @@
+import {VANGUARD} from './vanguard';
+import {t} from './i18n';
+import type {BikeProgress} from './bike-progress';
+import type {Race} from './game';
+const icon='<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="5" transform="rotate(-35 12 12)"/><path d="m12 7 4 5-4 5-4-5Z"/><circle cx="20" cy="7" r="2"/></svg>';
+export function vanguardStats(){return `<div class="garage-ability-stats"><span>${t('ability.vanguard.energy',{count:VANGUARD.energy})}</span><span>${t('ability.vanguard.max',{count:VANGUARD.max})}</span><span>${t('ability.interval',{value:VANGUARD.cooldown})}</span></div>`;}
+export function garageVanguard(_p:BikeProgress,preview:number){return preview===VANGUARD.tier?`<article class="garage-ability vanguard-ability" aria-label="Vanguard · Orbital Guard"><span class="garage-ability-icon">${icon}</span><div class="garage-ability-copy"><small>${t('ability.signature')}</small><h3>Orbital Guard</h3><p>${t('ability.vanguard.short')}</p>${vanguardStats()}</div><button class="garage-ability-open" data-action="bikeAbilities" aria-label="${t('ability.all')}"><span aria-hidden="true">↗&#xfe0e;</span></button></article>`:'';}
+export function vanguardStatus(r:Race){const g=r.combat.vanguard;return g.flashes.some(f=>f>0)?t('ability.vanguard.blocked'):g.deployFlash>0?t('ability.vanguard.deployed'):g.count===VANGUARD.max?t('ability.vanguard.full'):t('ability.vanguard.status',{stock:g.count,energy:g.energy,count:VANGUARD.energy})+(g.energy===VANGUARD.energy&&g.remaining>0?` · ${Math.ceil(g.remaining)}s`:'');}
+export function vanguardHud(r:Race){return r.bikeTier===VANGUARD.tier?`<small id="vanguard-status" class="vanguard-status">${vanguardStatus(r)}</small>`:'';}
+export function updateVanguardHud(ui:HTMLElement,r:Race){const el=ui.querySelector<HTMLElement>('#vanguard-status');if(!el)return;const g=r.combat.vanguard;el.hidden=!!r.training||r.ship.active||!!r.riftTransit;el.dataset.ready=String(g.count>0);el.dataset.blocking=String(g.flashes.some(f=>f>0));const text=vanguardStatus(r);if(el.textContent!==text)el.textContent=text;}
